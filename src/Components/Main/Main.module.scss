@@ -1,0 +1,40 @@
+.main {
+    min-height: 650px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../assets/pexels-alexandr-podvalny-1227513.jpeg);
+    background-position: bottom;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_content {
+        max-width: 380px;
+
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &__header > h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            line-height: 40px;
+            margin-bottom: 21px;
+            color: white;
+        }
+
+        &__paragraph > span {
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        &__button {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

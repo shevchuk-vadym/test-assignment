@@ -1,0 +1,25 @@
+.header {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &_logo {
+        display: flex;
+        flex-direction: row;
+    }
+    &_user {
+        min-width: 210px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &_button {
+        border: none;
+        background-color: #f4e041;
+        min-width: 100px;
+        min-height: 34px;
+        border-radius: 80px;
+        cursor: pointer;
+    }
+}
