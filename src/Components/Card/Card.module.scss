@@ -1,6 +1,6 @@
 .card {
-    min-width: 282px;
-    min-height: 254px;
+    max-width: 282px;
+    height: 254px;
     background-color: rgba(255, 255, 255, 1);
     padding: 20px;
     display: flex;
@@ -17,5 +17,21 @@
         & > img {
             border-radius: 50%;
         }
+    }
+    &_name {
+        text-align: center;
+    }
+    &_info {
+        &__vocation,
+        &__mail,
+        &__phoneNumber {
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 510px) {
+    .card {
+        width: 90%;
     }
 }

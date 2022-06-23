@@ -1,10 +1,15 @@
 import React, { useEffect } from 'react';
-import { Input } from '../Input/Input';
+import ImageUploading from 'react-images-uploading';
+
+import { Input } from '../Input';
 import s from './SendForm.module.scss';
 
 export const SendForm = () => {
   const [positions, setPositions] = React.useState(undefined);
+  const [image, setImage] = React.useState([]);
   const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [number, setNumber] = React.useState('');
   useEffect(() => {
     const getPositions = () => {
       fetch('https://frontend-test-assignment-api.abz.agency/api/v1/positions')
@@ -32,18 +37,42 @@ export const SendForm = () => {
     const value = e.target.value;
     setName(value);
   };
+  const onEmailChangeHandler = (e) => {
+    console.log(e.target);
+    const value = e.target.value;
+    setEmail(value);
+  };
+  const onPhoneChangeHandler = (e) => {
+    console.log(e.target);
+    const value = e.target.value;
+    setNumber(value);
+  };
+  const onChange = (imageList, addUpdateIndex) => {
+    console.log(imageList, addUpdateIndex);
+    setImage(imageList);
+  };
   return (
     <div className={s.sendForm}>
       <div className={s.sendForm_header}>
         <h1>Working with POST request</h1>
       </div>
       <form onSubmit={onSubmitHandler} className={s.sendForm_form}>
-        <Input value={name} onChange={onNameChnageHandler} />
-        <div className={`${s.sendForm_form__email} ${s.input}`}>
-          <input type='email' placeholder='Email' />
-        </div>
-        <div className={`${s.sendForm_form__phone} ${s.input}`}>
-          <input type='tel' placeholder='Phone' />
+        <Input
+          placeholder='Your name'
+          value={name}
+          onChange={onNameChnageHandler}
+        />
+        <Input
+          placeholder='Email'
+          value={email}
+          onChange={onEmailChangeHandler}
+        />
+        <div className={s.phone}>
+          <Input
+            placeholder='Phone number'
+            value={number}
+            onChange={onPhoneChangeHandler}
+          />
           <span>+38(XXX)XXX-XX-XX</span>
         </div>
         <div className={s.sendForm_form__radio}>
@@ -51,7 +80,7 @@ export const SendForm = () => {
           <div className={s.input_radio}>
             {positions
               ? positions.map((position) => (
-                  <label id={position.id}>
+                  <label id={position.id} className={s.radio}>
                     <input
                       type='radio'
                       onChange={(e) => {
@@ -68,7 +97,31 @@ export const SendForm = () => {
           </div>
         </div>
         <div className={s.sendForm_form__uploadPhoto}>
-          <h5>HERE WILL BE UPLOAD PHOTO</h5>
+          <ImageUploading
+            multiple
+            value={image}
+            onChange={onChange}
+            dataURLKey='data_url'
+          >
+            {({ imageList, onImageUpload, onImageRemove }) => (
+              <div className='upload__image-wrapper'>
+                <div className={s.upload_link}>
+                  <button onClick={onImageUpload}>Upload</button>
+                  <span>Upload your photo</span>
+                </div>
+                {imageList.map((image, index) => (
+                  <div key={index} className='image-item'>
+                    <img src={image['data_url']} alt='' width='100' />
+                    <div className='image-item__btn-wrapper'>
+                      <button onClick={() => onImageRemove(index)}>
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </ImageUploading>
         </div>
       </form>
     </div>

@@ -1,10 +1,12 @@
-export const Input = ({ onChange, value }) => {
+import s from './Input.module.scss';
+
+export const Input = ({ onChange, value, placeholder }) => {
   return (
-    <div>
+    <div className={s.input}>
       <input
         type='text'
         value={value}
-        placeholder='Your Name'
+        placeholder={placeholder}
         onChange={onChange}
       />
     </div>

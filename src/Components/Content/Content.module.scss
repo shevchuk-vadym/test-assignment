@@ -9,11 +9,30 @@
     &_main {
         margin-top: 50px;
         display: grid;
+        justify-content: center;
         grid-template-columns: 1fr 1fr 1fr;
         width: 95%;
         gap: 29px;
     }
     &_bottom {
         margin-top: 50px;
+    }
+}
+
+@media (max-width: 769px) {
+    .content {
+        &_main {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 510px) {
+    .content {
+        &_main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
