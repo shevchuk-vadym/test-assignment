@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import ImageUploading from 'react-images-uploading';
+import { Button } from '../Button';
 
 import { Input } from '../Input';
 import s from './SendForm.module.scss';
@@ -122,6 +123,9 @@ export const SendForm = () => {
               </div>
             )}
           </ImageUploading>
+        </div>
+        <div className={s.sendForm_button}>
+          <Button />
         </div>
       </form>
     </div>
