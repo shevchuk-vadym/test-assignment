@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/test-assignment/static/css/main.56358e44.css",
-    "main.js": "/test-assignment/static/js/main.a02adcd4.js",
+    "main.css": "/test-assignment/static/css/main.a824fe59.css",
+    "main.js": "/test-assignment/static/js/main.fc76fd46.js",
     "static/media/pexels-alexandr-podvalny-1227513.jpeg": "/test-assignment/static/media/pexels-alexandr-podvalny-1227513.be7665f876bbd9138501.jpeg",
     "static/media/success-image.svg": "/test-assignment/static/media/success-image.0d3202ba11b04fa7364b0f83ce42aea5.svg",
     "static/media/logo.svg": "/test-assignment/static/media/logo.d1de4d295f02a160968994d21d5abcf8.svg",
     "static/media/photo-cover.svg": "/test-assignment/static/media/photo-cover.fb98cf13a87225efe558.svg",
     "index.html": "/test-assignment/index.html",
-    "main.56358e44.css.map": "/test-assignment/static/css/main.56358e44.css.map",
-    "main.a02adcd4.js.map": "/test-assignment/static/js/main.a02adcd4.js.map"
+    "main.a824fe59.css.map": "/test-assignment/static/css/main.a824fe59.css.map",
+    "main.fc76fd46.js.map": "/test-assignment/static/js/main.fc76fd46.js.map"
   },
   "entrypoints": [
-    "static/css/main.56358e44.css",
-    "static/js/main.a02adcd4.js"
+    "static/css/main.a824fe59.css",
+    "static/js/main.fc76fd46.js"
   ]
 }
