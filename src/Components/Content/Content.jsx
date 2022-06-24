@@ -3,9 +3,8 @@ import s from './Content.module.scss';
 import { Button } from '../Button';
 
 export const Content = ({ users, moreUsers, isShowMoreButtonVisible }) => {
-  console.log(users);
   return (
-    <div className={s.content}>
+    <div className={s.content} id='content'>
       <div className={s.content_header}>
         <h1>Working with GET request</h1>
       </div>

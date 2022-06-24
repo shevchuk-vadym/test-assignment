@@ -1,9 +1,14 @@
 .button {
     border: none;
+    display: flex;
     background-color: rgb(244, 219, 71);
     min-width: 100px;
     min-height: 34px;
     border-radius: 80px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    color: black;
     cursor: pointer;
     &:hover {
         background-color: rgb(255, 223, 45);

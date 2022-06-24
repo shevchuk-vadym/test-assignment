@@ -23,3 +23,9 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 510px) {
+    .header {
+        padding: 0;
+    }
+}

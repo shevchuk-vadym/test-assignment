@@ -22,9 +22,11 @@
             align-items: center;
             font-size: 40px;
             line-height: 40px;
-            margin-bottom: 32px;
+            margin-bottom: 22px;
             margin-left: 5px;
             color: white;
+            font-weight: 400;
+            text-align: center;
         }
         &__paragraph {
             text-align: center;
@@ -32,12 +34,31 @@
         &__paragraph > span {
             color: white;
             margin-bottom: 32px;
+            font-size: 16px;
+            line-height: 26px;
         }
 
         &__button {
             margin-top: 32px;
             display: flex;
             justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 361px) {
+    .main {
+        min-height: 498px;
+        align-items: flex-start;
+        &_content {
+            margin-top: 39px;
+            padding: 0 10px;
+            &__header > h1 {
+                font-size: 33px;
+            }
+            &__paragraph {
+                margin-top: 38px;
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../Button/Button';
+import { Link } from '../Button';
 
 import s from './Header.module.scss';
 import logo from '../assets/logo.svg';
@@ -12,8 +12,8 @@ export const Header = () => {
         <span>TESTTASK</span>
       </div>
       <div className={s.header_user}>
-        <Button text='Users' />
-        <Button text='Sign up' />
+        <Link href='#content' text='Users' />
+        <Link href='#sendForm' text='Sign up' />
       </div>
     </div>
   );

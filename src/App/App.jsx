@@ -25,21 +25,17 @@ export const App = () => {
     [users]
   );
 
-  const getToken = useCallback(() => {
+  useEffect(() => {
     fetch(`${API_URL}/token`, {
       method: 'GET',
     })
       .then((t) => {
-        console.log(t);
         return t.json();
       })
       .then((user) => {
-        console.log(user.token);
         setToken(user.token);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   }, []);
 
   useEffect(() => {
@@ -52,11 +48,10 @@ export const App = () => {
           throw Error('Something goes wrong');
         })
         .then((data) => {
-          console.log(data);
           if (data.success) {
             addUsers(data.users);
             setTotalPages(data.total_pages);
-            console.log(totalPages);
+
             return;
           }
           throw Error('Please retry later');
@@ -72,22 +67,40 @@ export const App = () => {
     setIsLastPage(currentPage === totalPages);
   }, [currentPage, totalPages]);
 
-  console.log(users);
-
   function moreUsers() {
     setCurrentPage(currentPage + 1);
   }
+  const onSuccessSubmit = (newUserId) => {
+    fetch(`${API_URL}/users/${newUserId}`)
+      .then((response) => {
+        if (response.status === 200) {
+          return response.json();
+        }
+        throw Error('Something goes wrong');
+      })
+      .then((data) => {
+        if (data.success) {
+          setUsers([data.user, ...users]);
+          setTotalPages(data.total_pages);
 
+          return;
+        }
+        throw Error('Please retry later');
+      })
+      .catch((e) => {
+        alert(e.message);
+      });
+  };
   return (
     <div className={s.wrapper}>
       <Header />
-      <Main getToken={getToken} />
+      <Main />
       <Content
         users={users}
         moreUsers={moreUsers}
         isShowMoreButtonVisible={!isLastPage}
       />
-      <SendForm />
+      <SendForm token={token} onSuccessSubmit={onSuccessSubmit} />
     </div>
   );
 };

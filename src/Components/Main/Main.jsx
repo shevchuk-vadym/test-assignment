@@ -1,7 +1,7 @@
-import { Button } from '../Button/Button';
+import { Link } from '../Button';
 import s from './Main.module.scss';
 
-export const Main = ({ getToken }) => {
+export const Main = ({}) => {
   return (
     <div className={s.main}>
       <div className={s.main_content}>
@@ -19,13 +19,8 @@ export const Main = ({ getToken }) => {
             Front-End Development keeps evolving.
           </span>
         </div>
-        <div
-          className={s.main_content__button}
-          onClick={() => {
-            getToken();
-          }}
-        >
-          <Button text='Sign Up' />
+        <div className={s.main_content__button}>
+          <Link href={'#sendForm'} text={'Sign Up '} />
         </div>
       </div>
     </div>
