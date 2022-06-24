@@ -76,10 +76,10 @@ const FORM_STATE = {
   ERROR: 'ERROR',
   SUCCESS: 'SUCCESS',
 };
-export const SendForm = ({ token, getToken, onSuccessSubmit }) => {
+export const SendForm = ({ token, onSuccessSubmit }) => {
   const [positions, setPositions] = React.useState(undefined);
   const [images, setImages] = React.useState([]);
-  const [submitError, setSubmitError] = React.useState('EMPTY');
+  const [submitError, setSubmitError] = React.useState(FORM_STATE.EMPTY);
   const [formData, setFormData] = React.useState({
     name: '',
     phone: '',
@@ -163,7 +163,7 @@ export const SendForm = ({ token, getToken, onSuccessSubmit }) => {
   };
 
   const onChange = React.useCallback(
-    (imageList, addUpdateIndex) => {
+    (imageList) => {
       if (errors['photo']) {
         const { photo, ...rest } = errors;
         setErrors(rest);
@@ -240,7 +240,6 @@ export const SendForm = ({ token, getToken, onSuccessSubmit }) => {
                 dataURLKey='data_url'
               >
                 {({ imageList, onImageUpload, onImageRemove }) => (
-                  // write your building UI
                   <div className='upload__image-wrapper'>
                     <div
                       className={`${s.upload_link} ${
